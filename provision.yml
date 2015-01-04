@@ -4,7 +4,7 @@
   vars:
     zk:
       version: 3.4.6
-      mirror: http://mirrors.supportex.net/apache
+      mirror: http://apache.xl-mirror.nl
       dataDir: /var/lib/zookeeper
       installDir: "/opt"
   tasks:
@@ -22,9 +22,11 @@
       state: latest
 
   # Download Zookeeper
-  - set_fact: zk_name="zookeeper-{{zk.version}}"
-  - set_fact: zk_dir="{{zk.installDir}}/{{zk_name}}"
-  - name: ZooKeeper | Ensure tar {{zk_name}} is downloaded (mirror {{zk.mirror}})
+  - name: Zookeeper | Setting internal variable
+    set_fact: zk_name="zookeeper-{{zk.version}}"
+  - name: Zookeeper | Setting internal variable
+    set_fact: zk_dir="{{zk.installDir}}/{{zk_name}}"
+  - name: Zookeeper | Ensure Zookeeper tar is downloaded
     get_url:
       url: "{{zk.mirror}}/zookeeper/{{zk_name}}/{{zk_name}}.tar.gz"
       dest: "/tmp"
@@ -32,7 +34,7 @@
     command: tar xzf /tmp/{{zk_name}}.tar.gz chdir="{{zk.installDir}}"
 
   # Config and start Zookeeper
-  - name: ZooKeeper | Ensure zoo.conf is present in {{zk_dir}}/conf
+  - name: ZooKeeper | Ensure zoo.conf is present
     template:
       src: "templates/zk/zoo.cfg"
       dest: "{{zk_dir}}/conf"
