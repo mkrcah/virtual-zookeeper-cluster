@@ -13,7 +13,7 @@ Also, if you want to create a virtual cluster for other services built on top of
 - Memory: 256 MB each host
 - IP address: 192.168.5.100-102
 - Hostnames: `node-[x]` with `x` have values 1, 2 or 3
-- Zookeeper version: 3.4.6
+- Zookeeper version: 3.4.7
 - JVM: Oracle Java-7
 
 You can easily customize the cluster parameters in the following files:
@@ -81,8 +81,8 @@ vagrant ssh node-1
 
 ##### 2. Connect to Zookeeper running on localhost with the `zkCli.sh` command-line tool
 ```
-vagrant@node-1:~$ cd /opt/zookeeper-3.4.6/bin/
-vagrant@node-1:/opt/zookeeper-3.4.6/bin$ ./zkCli.sh -server localhost:2181
+vagrant@node-1:~$ cd /opt/zookeeper-3.4.7/bin/
+vagrant@node-1:/opt/zookeeper-3.4.7/bin$ ./zkCli.sh -server localhost:2181
 ```
 
 ##### 3. Create a test znode in the Zookeeper console
@@ -93,7 +93,7 @@ Created /zk_test
 
 ##### 4. Exit the console and connect to Zookeeper running on `node-2` (which runs on `192.168.5.101`)
 ```
-vagrant@node-1:/opt/zookeeper-3.4.6/bin$ ./zkCli.sh -server 192.168.5.101:2181
+vagrant@node-1:/opt/zookeeper-3.4.7/bin$ ./zkCli.sh -server 192.168.5.101:2181
 ```
 
 ##### 5. Check if the znode `zk_test` is seen on `node-2`
