@@ -3,7 +3,7 @@
   sudo: yes
   vars:
     zk:
-      version: 3.4.6
+      version: 3.4.7
       mirror: http://apache.xl-mirror.nl
       dataDir: /var/lib/zookeeper
       installDir: "/opt"
