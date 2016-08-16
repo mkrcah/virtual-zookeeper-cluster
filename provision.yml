@@ -1,10 +1,10 @@
 ---
 - hosts: all
-  sudo: yes
+  become: yes
   vars:
     zk:
-      version: 3.4.7
-      mirror: http://apache.xl-mirror.nl
+      version: 3.4.8
+      mirror: http://www-us.apache.org/dist
       dataDir: /var/lib/zookeeper
       installDir: "/opt"
   tasks:
